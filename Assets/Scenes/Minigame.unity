@@ -1911,6 +1911,7 @@ MonoBehaviour:
   speed: 10
   countText: {fileID: 553890569}
   winTextObject: {fileID: 1844815463}
+  cameraTransform: {fileID: 691924379}
 --- !u!1 &791431373
 GameObject:
   m_ObjectHideFlags: 0
