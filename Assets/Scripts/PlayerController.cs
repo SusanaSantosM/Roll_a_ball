@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 startPosition;
 
+    public Transform cameraTransform;  // Referencia a la camara
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,14 +31,17 @@ public class PlayerController : MonoBehaviour
 
     void OnMove(InputValue movementValue) 
     {
+        // Convert the input value into a Vector2 for movement.
         Vector2 movementVector = movementValue.Get<Vector2>();
 
+        // Store the X and Y components of the movement.
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
 
     void SetCountText() { 
         countText.text = "Count: " + count.ToString();
+
         // Condición de puntuación
         if (count >= 12) 
         {   
@@ -52,9 +58,29 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+    {   
+        // Dirección de entrada referente a la camara
+        Vector3 forward = cameraTransform.forward; // Hacia adelante de la camara
+        Vector3 right = cameraTransform.right;  // Hacia la derecha de la camra
+
+        // Debemos asegurar que las direcciones entén en el plano y
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+
+        // Calculamos la dirección del movimiento
+        Vector3 movement = forward* movementY + right* movementX;
+
+        // Aplicamos la fuerza del jugador
         rb.AddForce(movement * speed);
+
+        // Movimiento del jugador
+        //Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        //rb.AddForce(movement * speed);
+
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -74,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("PickUp")) {
             //Desactiva el objeto con que choca. (Lo desaparece)
             other.gameObject.SetActive(false);
-            count = count + 1;
+            count++;
 
             SetCountText();
         }
