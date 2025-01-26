@@ -10,6 +10,9 @@ public class CameraController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Orientación inicial de la cámara 
+        transform.rotation = Quaternion.Euler(45, 0, 0);
+
         offset = transform.position - player.transform.position;    
     }
 
