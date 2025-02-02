@@ -42,17 +42,21 @@ public class PlayerController : MonoBehaviour
     void SetCountText() { 
         countText.text = "Count: " + count.ToString();
 
+        // Vamos a referenciar la variable con el nivel donde estamos
+        int nivelActual = SceneManager.GetActiveScene().buildIndex;
+
         // Condición de puntuación
-        if (count >= 12) 
+        if (count > 13) 
         {   
             winTextObject.gameObject.SetActive (true);
             winTextObject.GetComponent<TextMeshProUGUI>().text = "You win!!";
 
-            // Destroy enemy
+            // El enmigo se destruye al completar el objetivo
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
 
-            // Cambiamos de nivel
-            SceneManager.LoadScene("Level2");
+            // Cambiamos al nivel 2
+            SceneManager.LoadScene(nivelActual + 1);
+
         }
 
     }
@@ -61,11 +65,11 @@ public class PlayerController : MonoBehaviour
     {   
         // Dirección de entrada referente a la camara
         Vector3 forward = cameraTransform.forward; // Hacia adelante de la camara
-        Vector3 right = cameraTransform.right;  // Hacia la derecha de la camra
+        Vector3 right = cameraTransform.right;  // Hacia la derecha de la camera
 
         // Debemos asegurar que las direcciones entén en el plano y
-        forward.y = 0;
-        right.y = 0;
+        //forward.y = 0;
+        //right.y = 0;
         forward.Normalize();
         right.Normalize();
 
@@ -79,8 +83,6 @@ public class PlayerController : MonoBehaviour
         //Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         //rb.AddForce(movement * speed);
 
-
-
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -92,6 +94,7 @@ public class PlayerController : MonoBehaviour
             winTextObject.gameObject.SetActive (true);
             winTextObject.GetComponent<TextMeshProUGUI>().text = "You lose!";
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -103,6 +106,18 @@ public class PlayerController : MonoBehaviour
             count++;
 
             SetCountText();
+        }
+
+        Debug.Log("Tocando algo");
+        if (other.gameObject.tag == "Cambio" && count == 12)
+        {
+
+            Debug.Log("Tocando Cambio");
+
+            int nivelActual = SceneManager.GetActiveScene().buildIndex;
+            winTextObject.gameObject.SetActive(true);
+            winTextObject.GetComponent<TextMeshProUGUI>().text = "You win!!";
+            SceneManager.LoadScene(nivelActual + 1);
         }
     }
 }
