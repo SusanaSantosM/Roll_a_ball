@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 12659016}
   m_Layer: 0
-  m_Name: ObjCam
+  m_Name: ObjectThirdCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 84897519}
   - component: {fileID: 84897518}
   - component: {fileID: 84897521}
+  - component: {fileID: 84897522}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -491,7 +492,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84897517}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
@@ -528,6 +529,19 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &84897522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84897517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f0d105092237549b89c79d933a6618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1001 &94087506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -713,7 +727,7 @@ GameObject:
   - component: {fileID: 141571829}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1392,9 +1406,10 @@ GameObject:
   - component: {fileID: 373494114}
   - component: {fileID: 373494113}
   - component: {fileID: 373494112}
+  - component: {fileID: 373494116}
   m_Layer: 0
-  m_Name: Pyramide
-  m_TagString: Untagged
+  m_Name: ObjectChangeLevel
+  m_TagString: Cambio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1414,7 +1429,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1482,12 +1497,40 @@ Transform:
   m_GameObject: {fileID: 373494111}
   serializedVersion: 2
   m_LocalRotation: {x: -0.4429774, y: -0.40106478, z: 0.1447481, w: 0.78864825}
-  m_LocalPosition: {x: 0.86, y: -0.97, z: 1.47}
-  m_LocalScale: {x: 1.8079158, y: 1.7856572, z: 1.8066006}
+  m_LocalPosition: {x: 1.72, y: -0.97, z: 2.94}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1849143791}
+  m_Children:
+  - {fileID: 1358849891}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -35.634, y: -69.41, z: 45.897}
+--- !u!54 &373494116
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373494111}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &502511830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2122,7 +2165,7 @@ GameObject:
   - component: {fileID: 950049412}
   m_Layer: 0
   m_Name: Third Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2626,6 +2669,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1849143791}
   m_LocalEulerAnglesHint: {x: 143.286, y: 179.913, z: 90.098}
+--- !u!1 &1358849890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1358849891}
+  - component: {fileID: 1358849892}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1358849891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358849890}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 373494115}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1358849892
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358849890}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1379451840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3168,7 +3264,7 @@ GameObject:
   - component: {fileID: 1628700511}
   m_Layer: 0
   m_Name: First Camara
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3825,7 +3921,6 @@ Transform:
   - {fileID: 1076682976}
   - {fileID: 1756254500}
   - {fileID: 1930156768}
-  - {fileID: 373494115}
   - {fileID: 727349376}
   - {fileID: 31052380}
   m_Father: {fileID: 0}
@@ -4433,7 +4528,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 1.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -4466,6 +4561,7 @@ SceneRoots:
   - {fileID: 84897520}
   - {fileID: 1849143791}
   - {fileID: 141571826}
+  - {fileID: 373494115}
   - {fileID: 2103765837}
   - {fileID: 249048143}
   - {fileID: 1951322214}
