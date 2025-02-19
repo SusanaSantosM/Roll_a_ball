@@ -14,6 +14,8 @@ Juego desarrollado en Unity, con scripts en C#, cuenta con:
 > tenemos tres niveles en donde el jugador debe tomar todos los puntos amarillos,
 > pasando obstaculos, subiendo o bajando y
 > escapando del enemigo que lo persigue.
+> El jugador luego de capturar los doce puntos, puede pasar de nivel llegando al medio cirulo amarillo.
+> Este medio circulo hace que pase al siguiente nivel.
 
 ## Desarrollo:
 > El juego constará de tres niveles, cada uno de ellos es una escena. 
@@ -40,4 +42,16 @@ Juego desarrollado en Unity, con scripts en C#, cuenta con:
 
 ![image](https://github.com/user-attachments/assets/f1671b3e-e621-4153-ab6d-30805c05d4e0)
 
+### Rampa movil y enemigos
+> Aparte de los obstaculos estéticos en el tercer nivel encontramos dos enemigos que perseguiran
+> a nuestro jugador. Uno en el primer plano y otro en el segundo.
+> También encontramos una plataforma que su dirección es de subir y bajar (estos son dos puntos), conectando ambos planos, para ello tenemos un scrip
+> llamado 'Platform'
 
+![image](https://github.com/user-attachments/assets/b6720be9-7b30-4cd8-9945-485bbd28b9ea)
+
+### Cambio de nivel
+> Al capturar todos los pick ups, el jugador debe ir hacia el punto de cambio. Este es un medio circulo amarillo, el cual solo se activa cuando el jugador recoge todos los pick ups.
+> Este se controla con un trigger en el script 'Player Controller'.
+
+![image](https://github.com/user-attachments/assets/53362856-e709-4007-be9a-4a8efe19aa1b)
