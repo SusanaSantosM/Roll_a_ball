@@ -78,22 +78,22 @@ public class PlayerController : MonoBehaviour
         right.Normalize();
 
         // Calculamos la dirección del movimiento
-        Vector3 movement = forward* movementY + right* movementX;
-
-        // Aplicamos la fuerza del jugador
-        //rb.AddForce(movement * speed);
-
-        // Movimiento del jugador
-        //Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        //rb.AddForce(movement * speed);
-
+        /**Vector3 movement = forward* movementY + right* movementX;
         dir.x = -Input.acceleration.y;
         dir.z = Input.acceleration.x;
         if (dir.sqrMagnitude > 1)
             dir.Normalize();
 
         dir *= Time.deltaTime;
-        transform.Translate(dir * speed);
+        transform.Translate(dir * speed);**/
+
+        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        rb.AddForce(movement * speed);
+
+        // Obtener datos del acelerómetro
+        Vector3 acceleration = Input.acceleration;
+        Vector3 gyroMovement = new Vector3(acceleration.x, 0.0f, acceleration.y);
+        rb.AddForce(gyroMovement * speed);
 
     }
 
