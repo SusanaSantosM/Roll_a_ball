@@ -68,8 +68,8 @@ public class PlayerController : MonoBehaviour
         Vector3 right = cameraTransform.right;  // Hacia la derecha de la camera
 
         // Debemos asegurar que las direcciones entén en el plano y
-        //forward.y = 0;
-        //right.y = 0;
+        forward.y = 0;
+        right.y = 0;
         forward.Normalize();
         right.Normalize();
 

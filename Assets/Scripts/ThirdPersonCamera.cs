@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-    public Transform target;         // Referencia al objeto que seguirá la cámara (CameraTarget)
+    public Transform target;         // Referencia al objeto que seguirá la cámara
     public float distance = 5f;      // Distancia desde el objetivo
-    public float height = 3f;        // Altura de la cámara
-    public float rotationSpeed = 5f; // Velocidad de rotación con el mouse
+    public float height = 0f;        // Altura de la cámara
+    public float rotationSpeed = 3f; // Velocidad de rotación con el mouse
 
     private float currentYaw = 0f;
 
