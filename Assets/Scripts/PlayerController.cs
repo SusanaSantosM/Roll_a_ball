@@ -81,11 +81,19 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = forward* movementY + right* movementX;
 
         // Aplicamos la fuerza del jugador
-        rb.AddForce(movement * speed);
+        //rb.AddForce(movement * speed);
 
         // Movimiento del jugador
         //Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         //rb.AddForce(movement * speed);
+
+        dir.x = -Input.acceleration.y;
+        dir.z = Input.acceleration.x;
+        if (dir.sqrMagnitude > 1)
+            dir.Normalize();
+
+        dir *= Time.deltaTime;
+        transform.Translate(dir * speed);
 
     }
 
