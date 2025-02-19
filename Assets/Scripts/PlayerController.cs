@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 startPosition;
 
+    private Vector3 dir;
+
     public Transform cameraTransform;  // Referencia a la camara
 
 
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
         //SetCountText(); // Función que cambiara segun la puntuación
         winTextObject.gameObject.SetActive(false);
+
+        dir = Vector3.zero;
     }
 
     void OnMove(InputValue movementValue) 
