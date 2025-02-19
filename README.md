@@ -6,6 +6,7 @@ Juego desarrollado en Unity, con scripts en C#, cuenta con:
 - Tres niveles de juego.
 - Obstáculos estáticos.
 - Pick ups que suman puntos al tomarlos.
+- Tres camaras(1ra persona, 3ra persona, mainCamera)
 
 Descripción del juego:
 
@@ -14,6 +15,8 @@ Descripción del juego:
 > escapando del enemigo que lo persigue.
 
 Desarrollo:
+Nivel 1:
+Aqui tenemos el script
 
  
 
