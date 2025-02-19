@@ -777,7 +777,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 84897519}
 --- !u!54 &141571822
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -937,9 +937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88337ab3ca0b424d97ae205b5bdbb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 12659016}
-  distance: 5
-  height: 3
+  player: {fileID: 141571819}
+  offset: {x: 0, y: 2, z: -5}
   rotationSpeed: 3
 --- !u!1001 &216091878
 PrefabInstance:
